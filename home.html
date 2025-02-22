@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dawood University - Modern Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .fade-in { animation: fadeIn 1.5s ease-in-out; }
+        .slide-in-left { animation: slideInLeft 1.5s ease-in-out; }
+        .slide-in-right { animation: slideInRight 1.5s ease-in-out; }
+
+        /* Hero text with background image */
+        .hero-text {
+            position: relative;
+            display: inline-block;
+        }
+        .hero-text img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3; /* Adjust opacity as needed */
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-purple-800 text-white py-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <h1 class="text-2xl font-bold">Dawood University</h1>
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="#about" class="hover:text-gray-300 slide-in-left">About</a></li>
+                <li><a href="#programs" class="hover:text-gray-300 slide-in-left">Programs</a></li>
+                <li><a href="#admissions" class="hover:text-gray-300 slide-in-left">Admissions</a></li>
+                <li><a href="#contact" class="hover:text-gray-300 slide-in-left">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative bg-cover bg-center h-screen" style="background-image: url('images/Snapinst.app_456312818_8384955628238022_5807329022594347579_n_1080.png');">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center text-white px-6">
+            <div class="hero-text fade-in">
+                
+                <h2 class="text-4xl md:text-6xl font-bold">Welcome to Dawood University Chatbot</h2>
+            </div>
+            <p class="mt-4 text-lg md:text-xl fade-in">Empowering Future Innovators</p>
+            <a href="#admissions" class="mt-6 px-6 py-3 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 transition fade-in">Apply Now</a>
+        </div>
+    </header>
+
+    <!-- Programs Section -->
+    <section id="programs" class="py-20 px-6 bg-white">
+        <div class="container mx-auto text-center">
+            <h3 class="text-3xl font-bold text-purple-800 slide-in-left">Our Programs</h3>
+            <p class="mt-4 text-gray-600 slide-in-right">Explore a range of programs designed for future leaders.</p>
+            <div class="grid md:grid-cols-3 gap-6 mt-8">
+                <div class="p-6 bg-gray-100 shadow-md rounded-lg hover:shadow-lg transition fade-in">
+                    <h4 class="text-xl font-semibold text-purple-700">Computer Science</h4>
+                    <p class="mt-2 text-gray-600">Develop cutting-edge tech skills.</p>
+                </div>
+                <div class="p-6 bg-gray-100 shadow-md rounded-lg hover:shadow-lg transition fade-in">
+                    <h4 class="text-xl font-semibold text-purple-700">Mechanical Engineering</h4>
+                    <p class="mt-2 text-gray-600">Innovate in the world of machines.</p>
+                </div>
+                <div class="p-6 bg-gray-100 shadow-md rounded-lg hover:shadow-lg transition fade-in">
+                    <h4 class="text-xl font-semibold text-purple-700">Artificial Intelligence</h4>
+                    <p class="mt-2 text-gray-600">Shape the future with AI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900 text-white text-center">
+        <h3 class="text-3xl font-bold slide-in-left">Get in Touch</h3>
+        <p class="mt-4 slide-in-right">Have questions? Reach out to us.</p>
+        <a href="mailto:info@duet.edu.pk" class="mt-6 inline-block px-6 py-3 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 transition fade-in">Contact Us</a>
+    </section>
+
+    <script>
+        window.watsonAssistantChatOptions = {
+          integrationID: "10ba078e-8787-44b0-9015-3027a028d618", // The ID of this integration.
+          region: "au-syd", // The region your integration is hosted in.
+          serviceInstanceID: "af33b61a-e37b-4d57-b7cb-7221f83cd67e", // The ID of your service instance.
+          onLoad: async (instance) => { await instance.render(); }
+        };
+        setTimeout(function(){
+          const t=document.createElement('script');
+          t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+          document.head.appendChild(t);
+        });
+    </script>
+</body>
+</html>
